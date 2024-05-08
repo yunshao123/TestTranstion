@@ -15,7 +15,17 @@
     <Button
         android:id="@+id/btn2"
         android:text="按钮二"
+        android:transitionName="button"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <VideoView
+        android:id="@+id/video2"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/btn2"
+        android:transitionName="videoView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 </LinearLayout>
