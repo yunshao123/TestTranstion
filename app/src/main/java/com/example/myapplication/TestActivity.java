@@ -19,9 +19,43 @@ public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         getWindow().setAllowEnterTransitionOverlap(false);
+        getWindow().setAllowEnterTransitionOverlap(false);
+        TransitionSet transitionSet = new TransitionSet();
+        Fade fede = new Fade();
+        fede.addTarget(R.id.btn2);
+        fede.setMode(Fade.IN);
+        transitionSet.addTransition(fede);
+        transitionSet.setDuration(3000L);
+        getWindow().setEnterTransition(transitionSet);
+        getWindow().getEnterTransition().addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+                Log.i("进场动画开始===========" , "333333333333");
+            }
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                Log.i("进场动画开始===========" , "4444444444444");
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {
+
+            }
+
+            @Override
+            public void onTransitionPause(Transition transition) {
+
+            }
+
+            @Override
+            public void onTransitionResume(Transition transition) {
+
+            }
+        });
 //        TransitionSet transitionSet = new TransitionSet();
 //        transitionSet.setDuration(300);
 //        //一起动画
