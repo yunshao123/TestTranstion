@@ -19,14 +19,19 @@ public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         super.onCreate(savedInstanceState);
-        getWindow().setAllowEnterTransitionOverlap(false);
-        getWindow().setAllowEnterTransitionOverlap(false);
+        getWindow().setAllowEnterTransitionOverlap(true);
+        getWindow().setAllowEnterTransitionOverlap(true);
         TransitionSet transitionSet = new TransitionSet();
         Fade fede = new Fade();
         fede.addTarget(R.id.btn2);
         fede.setMode(Fade.IN);
+
+        Slide slide = new Slide(Gravity.RIGHT);
+        slide.addTarget(R.id.btn2);
+
+        transitionSet.addTransition(slide);
         transitionSet.addTransition(fede);
         transitionSet.setDuration(3000L);
         getWindow().setEnterTransition(transitionSet);

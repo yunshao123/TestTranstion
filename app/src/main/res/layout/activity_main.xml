@@ -40,6 +40,8 @@
         android:id="@+id/tagTextView"
         android:layout_marginTop="100dp"
         android:text="测试测试"
+        android:textSize="40sp"
+        android:breakStrategy = "simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

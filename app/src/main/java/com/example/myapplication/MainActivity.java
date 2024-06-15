@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         setContentView(R.layout.activity_main);
         TextView tvShow = findViewById(R.id.tvShow);
         Button button = findViewById(R.id.btn1);
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         tagTextView = findViewById(R.id.tagTextView);
         //  尾部标签
         tagTextView.setTagsIndex(TagTextView.TAGS_INDEX_AT_END);
-        tagTextView.setSingleTagAndContent("尾部Tags", "这是一个尾手动阀手动阀部带有tag的TextView士大夫随风倒士大");
+        tagTextView.setSingleTagAndContent("尾部Tags", "8.0.0.Test MODe FUULL LED");
 //        videoView.start();
 //        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 //            @Override
