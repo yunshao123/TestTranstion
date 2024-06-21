@@ -282,4 +282,22 @@ public class MainActivity extends AppCompatActivity {
         anim.setDuration(3000);//设置动画时长
         anim.start();//开启动画
     }
+
+    private void test() {
+// 获取ListView对象
+        ListView listView = (ListView) findViewById(R.id.listView);
+
+// 创建动画
+        AnimationSet set = new AnimationSet(true);
+        Animation animation = new TranslateAnimation(0, 0, 0, 100); // 位移动画，往下移动100px
+        animation.setDuration(500); // 设置动画时长为500ms
+        set.addAnimation(animation);
+
+// 应用动画到ListView每个item
+        for (int i = 0; i < listView.getChildCount(); i++) {
+            View child = listView.getChildAt(i);
+            set.setStartOffset(50 * i); // 设置每个item间隔50ms
+            child.startAnimation(set);
+        }
+    }
 }
