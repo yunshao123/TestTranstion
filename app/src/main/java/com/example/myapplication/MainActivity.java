@@ -37,7 +37,6 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
@@ -226,6 +225,35 @@ public class MainActivity extends AppCompatActivity {
 
 
    //  https://blog.csdn.net/devilnov/article/details/124095018
+    /**
+     * 创建圆形揭示层动画
+     */
+    private void createCircularRevealAnim(View view,int mode) {
+        //设置圆心坐标和半径
+        int mCx = (view.getLeft() + view.getRight()) / 2;//获取x坐标
+        int mCy = (view.getTop() + view.getBottom()) / 2;//获取y坐标
+        //设置圆角半径
+        int mRadius = Math.max(view.getWidth() / 2, view.getHeight() / 2);
+        Animator anim;//声明一个动画
+        if (mode == MODE_IN) {
+            //揭露动画创建，五个参数
+            //param1:执行动画的视图；param2:动画开始的x坐标；param3:动画开始的y坐标；param4:动画开始的圆角半径；param5：动画结束的圆角半径
+            anim = ViewAnimationUtils.createCircularReveal(view, mCx, mCy, (float) mRadius /2, mRadius);
+        } else {
+            anim = ViewAnimationUtils.createCircularReveal(view, mCx, mCy, mRadius, 0);
+        }
+        //添加监听器来保证开始动画之前，布局不会显示，也可以添加动画退出监听，让布局隐藏
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                super.onAnimationStart(animation);
+                view.setVisibility(View.VISIBLE);
+            }
+        });
+        anim.setDuration(3000);//设置动画时长
+        anim.start();//开启动画
+    }
+
     /**
      * 创建圆形揭示层动画
      */
