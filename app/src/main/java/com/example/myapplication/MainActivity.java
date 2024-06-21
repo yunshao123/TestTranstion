@@ -36,6 +36,7 @@ import android.transition.Visibility;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -280,7 +281,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         anim.setDuration(3000);//设置动画时长
-        anim.start();//开启动画
+        anim.start();//开启
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setSurface(new Surface());
     }
 
     private void test() {
